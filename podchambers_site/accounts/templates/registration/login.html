@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load bulma_tags static %}
+{% load bulma_tags static utility_tags %}
 {% block title %}Log In{% endblock %}
 {% block header %}
 <section class="hero has-background-grey-dark is-fullheight has-text-link-light">
@@ -34,11 +34,15 @@
                 <h3 class="title has-text-link-light">Login</h3>
                 <hr>
                 <p class="subtitle has-text-weight-light has-text-white">Please login to access podChambers.dev.</p>
-                <div class="box has-background-grey-darker has-text-white">
+                <div class="box has-background-grey-light  has-text-white">
                     <figure class="avatar">
                         <i class="fa-solid fa-user-lock" style="color: #ccfcff;"></i>
                     </figure>
                     <form action="{% url 'login' %}" method="post">
+                        
+                        {% for field in form %}
+                        
+                        {% endfor %}
                         {{ form|bulma }}
                         {% csrf_token %}
                         <input type="hidden" name="next" value="{{ next }}" />

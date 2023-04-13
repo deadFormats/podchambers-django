@@ -1,6 +1,6 @@
 {% load static %}
 <!DOCTYPE html>
-<html>
+<html class="has-background-grey">
     <head>    
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,11 +10,14 @@
         <link rel="stylesheet" href="https://unpkg.com/bulma@0.9.0/css/bulma.min.css">
         {% block extra_css %}
         <link rel="stylesheet" type="text/css" href="{% static 'css/extra.css' %}">
+        <style>
+            
         {% endblock %}
+        </style>
     </head>
     <body>
         {% block header %}
-        <section class="hero has-background-grey-dark is-medium has-text-link-light">
+        <section class="hero has-background-grey-dark is-medium">
             <div class="hero-head">
                 <nav class="navbar">
                     <div class="container">

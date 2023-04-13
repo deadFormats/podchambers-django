@@ -1,0 +1,22 @@
+# from selenium.webdriver.chrome.webdriver import WebDriver
+# from selenium.webdriver.common.by import By
+# from faker import Faker
+# import random
+# import time
+# import sys
+
+
+driver = WebDriver()
+
+### First flow, navigate to site and come across Registration Page, register a new user,
+then log in as that user
+
+### Authentication flows: password_change and password_reset flows
+
+### User CRUD, edit settings for Profile and User a few times
+
+### get screenshots
+
+base_url = 'http://127.0.0.1:8000/'
+
+login = base_url + 'accounts/login/'
