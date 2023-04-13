@@ -1,0 +1,16 @@
+                                <div class="tabs is-right">
+                                    <ul>
+                                    <li {% if section == "landing" %}class="is-active"{% endif %}><a href="#">Home</a></li>
+<!--
+                                    {% if request.user.is_authenticated %}
+-->
+                                    <li {% if section == "dashboard" %}class="is-active"{% endif %}><a href="{% url 'dashboard' %}">Dashboard</a></li>
+                                    <li {% if section == "my_pods" %}class="is-active"{% endif %}><a href="#">My Pods</a></li>
+                                    <li {% if section == "settings" %}class="is-active"{% endif %}><a href="#">Settings</a></li>
+                                    </ul>
+                                    <span class="navbar-item">
+                                        <a class="button is-danger is-outlined is-responsive" href="{% url 'logout' %}">
+                                            Logout
+                                        <a>
+                                    </span>
+                                </div>
