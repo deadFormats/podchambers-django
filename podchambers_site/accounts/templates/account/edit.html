@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load bulma_tags utility_tags %}
+{% block title %}Account settings{% endblock %}
+{% block hero_title %}
+<h1 class="title has-text-centered has-text-light">Account settings</h1>
+<h2 class="subtitle has-text-centered has-text-light has-text-weight-light">Update your configuration here</h2>
+{% endblock %}
+{% block content %}
+<div class="column is-4 is-offset-4 has-text-centered">
+    <div class="box has-background-grey-darker has-text-light">
+        <form method="post" enctype="multipart/form-data">
+            {{ user_form|bulma }}
+            {{ profile_form|bulma }}
+            {% csrf_token %}
+            <input type="submit" value="Save changes">
+        </form>
+    </div>
+</div>
+{% endblock %}

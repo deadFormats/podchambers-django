@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}Logged out{% endblock %}
+{% block hero_title %}
+<h1 class="title has-text-centered has-text-white">Logged Out</h1>
+<h2 class="subtitle has-text-centered has-text-white has-text-weight-light">
+    Successfully signed out from your account.
+</h2>
+{% endblock %}
+
+{% block content %}
+<div class="column is-4 is-offset-4 has-text-centered">
+    <div class="buttons">
+        <a class="button is-info is-block is-fullwidth is-medium">
+            Return to Login
+        </a>
+        <div class="buttons has-addons is-centered">
+            <a class="button is-dark" href="https://github.com/deadFormats/">
+                <span class="icon">
+                    <i class="fab fa-github" style="color: #ccfcff;"></i>
+                </span>
+                <span>My Github</span>
+            </a>
+            <a class="button has-background-grey-dark" href="#">
+                <span class="icon">
+                    <i class="fa-solid fa-hands-holding-dollar" style="color: #ccfcff;"></i>
+                </span>
+                <span>Support the Project</span>
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}

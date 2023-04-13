@@ -1,0 +1,85 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>    
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{% block title %}{% endblock %}</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Questrial&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://unpkg.com/bulma@0.9.0/css/bulma.min.css">
+        {% block extra_css %}
+        <link rel="stylesheet" type="text/css" href="{% static 'css/extra.css' %}">
+    </head>
+    <body>
+        {% block header %}
+        <section class="hero has-background-grey-dark is-medium has-text-link-light">
+            <div class="hero-head">
+                <nav class="navbar">
+                    <div class="container">
+                        <div class="navbar-brand">
+                            <a class="navbar-item" href="/">
+                                <img src="{% static 'imgs/logo.png' %}" alt="Logo">
+                            </a>
+                            <span class="navbar-burger burger" data-target="navbarMenu">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </span>
+                        </div>
+                        <div id="navbarMenu" class="navbar-menu">
+                            <div class="navbar-end">
+                                {% if request.user.is_authenticated %}
+                                <div class="tabs is-right">
+                                    <ul>
+                                    <li {% if section == "landing" %}class="is-active"{% endif %}><a href="#">Home</a></li>
+<!--
+                                    {% if request.user.is_authenticated %}
+-->
+                                    <li {% if section == "dashboard" %}class="is-active"{% endif %}><a href="{% url 'dashboard' %}">Dashboard</a></li>
+                                    <li {% if section == "my_pods" %}class="is-active"{% endif %}><a href="#">My Pods</a></li>
+                                    <li {% if section == "settings" %}class="is-active"{% endif %}><a href="#">Settings</a></li>
+                                    </ul>
+                                    <span class="navbar-item">
+                                        <a class="button is-danger is-outlined is-responsive" href="{% url 'logout' %}">
+                                            Logout
+                                        <a>
+                                    </span>
+                                </div>
+                                {% else %}
+                                <div class="tabs is-right">
+                                    <span class="navbar-item">
+                                    <a class="button is-primary is-responsive" href="{% url 'register' %}"><strong>Sign Up</strong></a>
+                                    </span>
+                                    <span class="navbar-item">
+                                    <a class="button is-link is-outlined is-responseive" href="{% url 'login' %}">Login</a>
+                                    </span>
+                                </div>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+            <div class="hero-body">
+                <div class="container has-text-centered has-text-white">
+                    {% block hero_title %}
+                    <h1 class="title">podChambers.dev</h1>
+                    <h2 class="subtitle">Communities and Forums as a service</h2>
+                    {% endblock %}
+                </div>
+            </div>
+        </section>
+        {% endblock %}
+        <section class="container has-background-grey has-text-white-ter">
+            {% block content %}
+            {% endblock %}
+        </section>
+        {% block footer %}
+        {% endblock %}
+        {% block scripts %}
+        {% endblock %}
+        {% block domready %}
+        {% endblock %}
+    </body>
+</html>
